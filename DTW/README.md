@@ -25,23 +25,23 @@
 		* 计算两个特征序列的 DTW 距离
 
 5. **计算测试结果**
-	* 每个测试语料都有一个类别标签 $l_i$
-	* 每个测试语料都有一个识别结果 $r_i$
-	* $r_i = maxD_{ij}$  其中， $D_{ij}$ 为第 i 个测试语料和第 j 个模板间的DTW距离（规整后）
-	* 若 $r_i = l_i$ 表示识别结果正确
+	* 每个测试语料都有一个类别标签 $l-i$
+	* 每个测试语料都有一个识别结果 $r-i$
+	* $r-i = minD-{ij}$  其中， $D-{ij}$ 为第 i 个测试语料和第 j 个模板间的DTW距离（规整后）
+	* 若 $r-i = l-i$ 表示识别结果正确
 	* 计算正确率=识别结果正确的语料数/总测试语料数
 
 6. **扩展**
 	* **实用扩展**：设计简单的GUI，便于操作，实时采集语音信号并识别检测得到结果。
-	* 算法扩展：尝试基于HMM的识别算法，将在下面简单介绍。
+	* 算法扩展：尝试基于HMM的识别算法，因为时间久远，仅在后续简单介绍。
 
 # 文件夹介绍
 
 ## 三个存放语音的文件夹
 
-* **RecordedVoice** ： 我自己录制的语音命令，一共 10 个命令，每个命令录了 5 遍，共 50 个语音
-* **RecordedVoice-EndPointed** ：对录好的 50 个语音命令进行端点检测后的语音，处理的代码是 endpointDetection_RecordedVoice.py
-* **RecordedVoice-RealTime** ： 在代码中实时录取的语音存放的位置
+* **RecordedVoice** ： 存放采集的命令词语音文件，共10 个命令，每个命令录了 6 遍，共 60 个语音
+* **RecordedVoice-EndPointed** ：对录好的 60 个语音命令进行端点检测后的语音，处理的代码是 endpointDetection_RecordedVoice.py
+* **RecordedVoice-RealTime** ： 存放通过代码实时录取的语音
 
 ## 两个 HTK 工具包
 
@@ -51,19 +51,19 @@
 
 ## 两个存放 MFCC 特征的文件夹
 
-* **MFCC-EndPointedVoice** ：存放利用 Hcopy 提取录制的 50 个命令词的 MFCC 特征。
+* **MFCC-EndPointedVoice** ：存放利用 Hcopy 提取录制的 60 个命令词的 MFCC 特征。
 * **MFCC-RealTimeRecordedVoice** ：存放利用 Hcopy 提取实时录音的语音文件的 MFCC 特征。
 
 ## 三个 Python 脚本文件
 
-* **endpointDetection.py** ： 一个端点检测的库，由实验一的代码改造的
-* **endpointDetection_RecordedVoice.py** ： 对录取的语音进行端点检测的脚本
-* **VoiceRecognition.py** ： 语音识别的脚本，包括静态语音匹配和语音实时匹配，是该实验的主要脚本
+* **endpointDetection.py** ： 一个端点检测的模块
+* **endpointDetection_RecordedVoice.py** ： 对录取的语音进行端点检测的模块
+* **VoiceRecognition.py** ： 语音识别的脚本，包括静态语音匹配和语音实时匹配，是该实验的主要模块
 
 # 命令词 10 个
 
-* 1. 开门
-* 2. 关门
+* 1. 开灯
+* 2. 关灯
 * 3. 播放音乐
 * 4. 关闭音乐
 * 5. 打开空调
